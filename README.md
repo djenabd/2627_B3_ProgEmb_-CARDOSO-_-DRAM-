@@ -1,3 +1,5 @@
+# Tp 1 
+
 **Réflexion Notez le hostname et le nom d'utilisateur choisis. Pourquoi est-il nécessaire de définir ces informations avant le premier démarrage d'une Raspberry Pi utilisée sans écran ?**
 
 ## 💭 Réflexion Sur votre compte rendu :
@@ -48,3 +50,22 @@ Il faut vérifier que la connexion par clé fonctionne correctement, sinon, si o
 
 **Quels droits doivent avoir les dossiers et fichiers .ssh pour limiter les risques ?** \
 Les fichiers contenant les clés ne doivent être accessibles que par leur propriétaire. Cela évite qu'un autre utilisateur puisse consulter ou modifier les informations utilisées pour l'authentification SSH.
+
+# TP 2
+
+## 💭 Réflexion Répondez aux questions suivantes :
+**Pourquoi un moteur ne doit-il pas être branché directement sur une broche GPIO ?** \
+Car une broche GPIO ne peut pas fournir assez de courant pour alimenter un moteur. Cela risque d'endommager la Raspberry Pi, il faut utiliser un driver adapté pour le contrôler
+
+**Quelle différence y a-t-il entre une adresse I2C et une sélection de périphérique SPI ?** \
+Une adresse I2C permet d'identifier un périphérique parmi plusieurs sur les deux fils du bus tandis qu'en SPI la sélection du périphérique est gérée directement par le bus
+
+**Pourquoi une communication UART nécessite-t-elle d'accorder le débit entre les deux appareils ?** \
+Parce que les deux appareils doivent échanger les données au même rythme sinon les octets reçus risquent d'être mal interprétés
+
+**Pourquoi les programmes des TP doivent-ils toujours fermer ou nettoyer les interfaces matérielles ?** \
+Pour libérer les ressources utilisées et éviter de laisser les GPIO dans un mauvais état. Le bloc finally permet de garantir le nettoyage même si le programme est interrompu
+
+**Quel est le rôle d'un driver et que gagne-t-on à séparer main.py, config.py et le driver ?** \
+Le driver masque les détails de la communication matérielle, le programme principal peut donc appeler des fonctions comme read_accel() ou rotate() sans avoir à gérer les registres, les octets, les timings et les broches. Séparer les fichiers permet de mieux organiser le code et de distinguer le programme principal, la configuration et la communication avec le matériel.
+
