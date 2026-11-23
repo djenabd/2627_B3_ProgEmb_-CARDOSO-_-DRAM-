@@ -69,3 +69,25 @@ Pour libérer les ressources utilisées et éviter de laisser les GPIO dans un m
 **Quel est le rôle d'un driver et que gagne-t-on à séparer main.py, config.py et le driver ?** \
 Le driver masque les détails de la communication matérielle, le programme principal peut donc appeler des fonctions comme read_accel() ou rotate() sans avoir à gérer les registres, les octets, les timings et les broches. Séparer les fichiers permet de mieux organiser le code et de distinguer le programme principal, la configuration et la communication avec le matériel.
 
+# TP 3
+
+## 💭 Réflexion Répondez aux questions suivantes :
+**Pourquoi une mesure sur deux octets doit-elle être interprétée en complément à deux ?**\
+
+**Comment reconnaît-on qu'une valeur signée est négative ?**\
+
+**Pourquoi faut-il activer BDU avant de lire les six octets d'un bloc de mesures ?**\
+
+**Quel est le rôle de l'auto-incrément d'adresse IF_INC ?**\
+
+**Que peut-on déduire si le capteur répond à l'adresse 0x6B mais pas à 0x6A ?**\
+
+💭 Réflexion Dans votre compte rendu :
+Quelle valeur d'accélération doit-on observer approximativement sur un axe aligné avec la gravité lorsque le capteur est immobile ?
+ourquoi les angles calculés avec atan2 sont-ils plus robustes qu'un simple rapport entre deux axes ?
+Quelle est l'influence de READ_DELAY sur la fréquence d'affichage et la charge du processeur ?
+Que se passe-t-il si la plage FS_2G est dépassée ? Proposez une configuration adaptée à des mouvements plus brusques.
+
+# TP 4
+dsd
+
