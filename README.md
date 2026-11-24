@@ -73,10 +73,13 @@ Le driver masque les détails de la communication matérielle, le programme prin
 
 ## 💭 Réflexion Répondez aux questions suivantes :
 **Pourquoi une mesure sur deux octets doit-elle être interprétée en complément à deux ?**\
+Parce que les mesures peuvent être positives ou négatives. Le complément à deux permet de représenter les nombres signés sur deux octets.
 
 **Comment reconnaît-on qu'une valeur signée est négative ?**\
+On regarde le bit de poids fort. S'il vaut 1, la valeur est négative. S'il vaut 0, elle est positive ou nulle.
 
 **Pourquoi faut-il activer BDU avant de lire les six octets d'un bloc de mesures ?**\
+Pour éviter que les données changent pendant leur lecture et garantir la cohérence des six octets correspondant aux trois axes.
 
 **Quel est le rôle de l'auto-incrément d'adresse IF_INC ?**\
 
